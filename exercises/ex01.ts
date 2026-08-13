@@ -9,8 +9,28 @@
 // Eg: printInfoOrCalculate("TS",5,"+") //Expected result: TS
 // Eg: printInfoOrCalculate("TS") //Expected result: TS
 
-const printInfoOrCalculate = () => {
-  // Code here
+const printInfoOrCalculate = (param1: string | number, param2?: number, operator?: string) => {
+  
+  if(typeof param1 === 'string'){
+    return param1;
+  }
+
+  if(param2 === undefined || operator === undefined){
+    throw new Error("Invalid input");
+  }
+
+  if(operator === '+'){
+    return param1 + param2;
+  } else if (operator === '-'){
+    return param1 - param2;
+  } else if(operator === '*'){
+    return param1 * param2;
+  } else if(operator === '/'){
+    return param1 / param2;
+  } else {
+    throw new Error("Invalid input");
+  }
+
 };
 
 // Tests
