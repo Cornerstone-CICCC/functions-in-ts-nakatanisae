@@ -2,8 +2,18 @@
 // Use function overloading to define the function in two variants: one for numbers and another for strings.
 // Return the string.
 
-const combine = () => {
-  //Code here
+type CombineFunction = {
+    (a: number,b: number):string;
+    (a: string,b: string):string;
+    (a: number,b: string):string;
+    (a: string,b: number):string;
+  }
+
+const combine: CombineFunction = (
+  a: number | string, 
+  b: number | string
+):string => {
+   return `${a}${b}`
 };
 
 console.log(combine(2, 3)); // Expected output: "23"
