@@ -5,8 +5,23 @@
 // If the number is divisible by 5, you should replace the number with "Buzz".
 // If the number is divisible by both 3 and 5, you should replace the number with "FizzBuzz".
 
-const fizzBuzzArray = () => {
+const fizzBuzzArray = (num: number) => {
   // Code here
+  const result: (number | string)[] =[];
+
+  for(let i =1; i<= num; i++ ){
+    if( i%3 === 0 && i%5 === 0 ){
+      result.push("FizzBuzz")
+    } else if( i%3 === 0 ){
+      result.push("Fizz")
+    } else if( i%5 === 0){
+      result.push("Buzz")
+    } else {
+      result.push(i)
+    }
+  }
+
+  return result
 };
 
 export default fizzBuzzArray;
