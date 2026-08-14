@@ -2,8 +2,24 @@
 // returns a string representing the phone number formed by concatenating the numbers in the specified format.
 // return the string "It's missing digits" if the number doesn't have 10 digits or "There are too many digits" if is bigger than 10
 
-const formatPhoneNumber = () => {
+const formatPhoneNumber = (numbers:number[]):string => {
   // Code here
+
+  //number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+  //check the length
+  if(numbers.length < 10){
+    return "It's missing digits"
+  } else if(numbers.length > 10){
+    return "There are too many digits"
+  }
+
+  //slice and join numbers
+  const headNum = numbers.slice(0,3).join("");
+  const middleNum = numbers.slice(3,6).join("");
+  const tailNum = numbers.slice(6).join("");
+
+  return`(${headNum}) ${middleNum}-${tailNum}`
+
 };
 
 export default formatPhoneNumber;
